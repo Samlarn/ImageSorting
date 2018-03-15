@@ -26,8 +26,7 @@ public class ProductInformationParser {
                     for(int i = 3; i < lineArray.length; i++) {
                         sb.append(lineArray[i]);
                     }
-                    String keyWord = handleImgKeywords(sb.toString());
-                    product.setCmImgKeywordsUnibake(keyWord);
+                    product.setCmImgKeywordsUnibake(sb.toString());
                 }
                 else if(lineArray[2].equals("CmName:")) {
                     product.setCmName(lineArray[3]);
@@ -48,28 +47,8 @@ public class ProductInformationParser {
         }
     }
     
-    /*
-     * Choose a keyword (not clean code...)
-     */
-    private String handleImgKeywords(String imgKeywords) {
-    	
-    	if(imgKeywords.toLowerCase().contains("mix")) {
-    		return "mix";
-    	}
-    	else if(imgKeywords.toLowerCase().contains("hotdog")) {
-    		return "hotdogroll";
-    	}
-    	else if(imgKeywords.toLowerCase().contains("burger")) {
-    		return "hamburgerbun";
-    	}
-    	else if(imgKeywords.toLowerCase().contains("pita")) {
-    		return "pita";
-    	}
-    	
-    	return imgKeywords;
-    }
-    
 
+    
     public ArrayList<Product> getProducts() {
         return products;
     }
